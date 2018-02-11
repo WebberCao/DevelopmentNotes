@@ -1,2 +1,2 @@
-# AndroidDevelopmentNotes
-AndroidDevelopmentNotes
+# DevelopmentNotes
+DevelopmentNotes
