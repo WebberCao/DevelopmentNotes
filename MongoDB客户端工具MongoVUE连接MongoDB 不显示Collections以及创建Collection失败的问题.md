@@ -7,3 +7,4 @@ Mongodb 3.0支持用户自定义存储引擎，用户可配置使用mmapv1或者
 #### 二、通过命令启动wiredTiger 存储引擎：
 mongod --storageEngine wiredTiger  --dbpath 数据目录
 之后就会正常使用了，如下图所示：
+
