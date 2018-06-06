@@ -71,4 +71,16 @@ layout过程决定了View在父容器中的位置和View的最终显示宽高。
 | 计算边界 | computeBounds| 计算路径的矩形边界 |
 | 闭合方向 | Direction | 顺时针方向闭合Path(CW),逆时针方向闭合Path(CCW) |
 <br>
+**一个完整的绘制过程会依次绘制以下几个内容：**
+1. 背景
+2. 主体（onDraw()）
+3. 子 View（dispatchDraw()）
+4. 滑动边缘渐变和滑动条
+5. 前景
+
+
+
+
+
+
 
