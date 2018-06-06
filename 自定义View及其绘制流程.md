@@ -80,6 +80,7 @@ layout过程决定了View在父容器中的位置和View的最终显示宽高。
 5. 前景
 
 **draw() 总调度方法**
+
 draw() 是绘制过程的总调度方法。一个 View 的整个绘制过程都发生在 draw() 方法里。<br>
 ```
 / View.java 的 draw() 方法的简化版大致结构（是大致结构）：
@@ -99,12 +100,13 @@ public void draw(Canvas canvas) {
 | 重写的方法 |  绘制代码的位置 | 绘制的内容出现的位置 |
 |:----------:|:-------------:|:------------------:|
 | onDraw()  | super.onDraw()之前| 背景与原主体内容之间|
-|           | super.onDraw()之后| 原主体内容与子View之间|
-| dispatchDraw()| super.dispatchDraw()之前 |          |
+|  onDraw()    | super.onDraw()之后| 原主体内容与子View之间|
+| dispatchDraw()| super.dispatchDraw()之前 |原主体内容与子View之间   |
 | dispatchDraw()| super.dispatchDraw()之后 | 子View和前景之间 |
-| onDrawForeground()| super.onDrawForeground()之前 |        |
-|                   | super.onDrawForeground()之后 | 盖住前景  |
-
+| onDrawForeground()| super.onDrawForeground()之前 | 子View和前景之间  |
+| onDrawForeground()  | super.onDrawForeground()之后 | 盖住前景  |
+| draw()  | super.draw()之前   |   被背景盖住 |
+| draw()  | super.draw()之后   |   盖住前景 |
 
 
 
