@@ -29,7 +29,7 @@ layout过程决定了View在父容器中的位置和View的最终显示宽高。
 | 事件处理     | onTouchEvent  |   处理屏幕触摸事件|
 | 重绘     | invalidate  |  调用onDraw方法，重绘View中变化的部分|
 <br>
-**Canvas涉及方法**</br>
+**Canvas涉及方法**<br>
 
 | 类别        | API           | 描述   |  
 | ------------- |:-------------:| -----   |  
@@ -37,8 +37,9 @@ layout过程决定了View在父容器中的位置和View的最终显示宽高。
 | 绘制文本      | drawText, drawPosText, drawTextOnPath |    依次为绘制文字、指定每个字符位置绘制文字、根据路径绘制文字|
 | 画布变换      | translate, scale, rotate, skew |   依次为平移、缩放、旋转、倾斜（错切） |
 | 画布裁剪      | clipPath, clipRect, clipRegion |   依次为按路径、按矩形、按区域对画布进行裁剪 |
-</br>
-**Paint涉及方法**</br>
+<br>
+
+**Paint涉及方法**<br>
 
 | 类别        | API           | 描述  |
 | ------------- |:-------------:| -----   | 
