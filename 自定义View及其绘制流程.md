@@ -16,3 +16,10 @@ layout过程决定了View在父容器中的位置和View的最终显示宽高。
 绘制视图本身，即调用onDraw()函数。在View中onDraw()是个空函数，也就是说具体的视图都要override该函数来实现自己的显示，而对于ViewGroup则不需要实现该
 函数，因为作为容器是“没有内容“的，其包含了多个子view，而子view已经实现了自己的绘制方法，因此只需要告诉子view绘制自己就可以了，也就是下面
 的dispatchDraw()方法。
+
+onMeasure	      测量View与Child View的大小
+onLayout	      确定Child View的位置
+onSizeChanged	  确定View的大小
+onDraw	        实际绘制View的内容
+onTouchEvent	  处理屏幕触摸事件
+invalidate	    调用onDraw方法，重绘View中变化的部分
