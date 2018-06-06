@@ -18,7 +18,7 @@ layout过程决定了View在父容器中的位置和View的最终显示宽高。
 的dispatchDraw()方法。
 
 
-**绘制过程相关方法**<br>
+**绘制过程涉及方法**<br>
 
 | 类别  | 方法名  | 描述  |
 |:-----:|:--------:|-------|
@@ -29,9 +29,10 @@ layout过程决定了View在父容器中的位置和View的最终显示宽高。
 | 事件处理     | onTouchEvent  |   处理屏幕触摸事件|
 | 重绘     | invalidate  |  调用onDraw方法，重绘View中变化的部分|
 <br>
+
 **Canvas涉及方法**<br>
 
-| 类别        | API           | 描述   |  
+| 类别        | 方法名           | 描述   |  
 | ------------- |:-------------:| -----   |  
 | 绘制图形      | drawPoint, drawPoints, drawLine, drawLines, drawRect, drawRoundRect, drawOval, drawCircle, drawArc | 依次为绘制点、直线、矩形、圆角矩形、椭圆、圆、扇形 |
 | 绘制文本      | drawText, drawPosText, drawTextOnPath |    依次为绘制文字、指定每个字符位置绘制文字、根据路径绘制文字|
@@ -41,7 +42,7 @@ layout过程决定了View在父容器中的位置和View的最终显示宽高。
 
 **Paint涉及方法**<br>
 
-| 类别        | API           | 描述  |
+| 类别        | 方法名           | 描述  |
 | ------------- |:-------------:| -----   | 
 | 颜色      | setColor, setARGB, setAlpha | 依次为设置画笔颜色、透明度 |
 | 类型      | setStyle |   填充(FILL),描边(STROKE),填充加描边(FILL_AND_STROKE) |
@@ -52,5 +53,22 @@ layout过程决定了View在父容器中的位置和View的最终显示宽高。
 | 文字对齐方式      | setTextAlign |   左对齐(LEFT),居中对齐(CENTER),右对齐(RIGHT) |
 | 宽度      | setStrokeWidth |   设置画笔宽度 |
 | 笔锋      | setStrokeCap |   默认(BUTT),半圆形(ROUND),方形(SQUARE) |
+<br>
+
+**Path涉及方法**<br>
+
+| 类型  | 方法名| 描述 |
+| ------------- |:-------------:| ------------- |
+| 添加路径 | addArc, addCircle, addOval, addPath, addRect, addRoundRect, arcTo | 依次为添加圆弧、圆、椭圆、路径、矩形、圆角矩形、圆弧|
+| 移动起点 | moveTo | 移动起点位置，仅对之后路径产生影响 |
+| 移动终点 | setLastPoint | 移动上一次的终点位置，对前后的路径都会产生影响|
+| 直线 | lineTo | 增加一条道指定点的直线 |
+| 贝塞尔 | quadTo, cubicTo | 二阶、三阶贝塞尔曲线 |
+| 闭合路径 | close | 路径终点连接到起点|
+| 逻辑运算 | op | A\B(DIFFERENCE), A∩B(INTERSECT), B\A(REVERSE_DIFFERENCE), A∪B(UNION), A⊕B(XOR)|
+| 替换路径 | set | 用新的路径替换当前路径 |
+| 重置 | reset, rewind| 清除path使它为空，清除path但保留内部的数据结构 |
+| 计算边界 | computeBounds| 计算路径的矩形边界 |
+| 闭合方向 | Direction | 顺时针方向闭合Path(CW),逆时针方向闭合Path(CCW) |
 <br>
 
