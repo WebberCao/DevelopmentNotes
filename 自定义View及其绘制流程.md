@@ -17,6 +17,18 @@ layout过程决定了View在父容器中的位置和View的最终显示宽高。
 函数，因为作为容器是“没有内容“的，其包含了多个子view，而子view已经实现了自己的绘制方法，因此只需要告诉子view绘制自己就可以了，也就是下面
 的dispatchDraw()方法。
 
+
+**绘制过程相关方法**<br>
+
+| 类别  | 方法名  | 描述  |
+|-------|:--------:|-------|
+|测量、布局 | onMeasure | 测量View与Child View的大小 |
+|       | onLayout   | 确定Child View的位置  |
+|       | onSizeChange | 确定View的大小  |
+| 绘制  | onDraw      | 实际绘制View的内容  |
+
+
+
 onMeasure       测量View与Child View的大小
 
 onLayout	      确定Child View的位置
