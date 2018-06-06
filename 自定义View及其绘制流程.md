@@ -21,7 +21,7 @@ layout过程决定了View在父容器中的位置和View的最终显示宽高。
 **绘制过程相关方法**<br>
 
 | 类别  | 方法名  | 描述  |
-|：-----：|:--------:|-------|
+|:-----:|:--------:|-------|
 |测量、布局 | onMeasure | 测量View与Child View的大小 |
 |       | onLayout   | 确定Child View的位置  |
 |       | onSizeChange | 确定View的大小  |
