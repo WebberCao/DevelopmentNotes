@@ -18,8 +18,14 @@ layout过程决定了View在父容器中的位置和View的最终显示宽高。
 的dispatchDraw()方法。
 
 onMeasure	      测量View与Child View的大小
+
 onLayout	      确定Child View的位置
+
 onSizeChanged	  确定View的大小
+
 onDraw	        实际绘制View的内容
+
 onTouchEvent	  处理屏幕触摸事件
+
 invalidate	    调用onDraw方法，重绘View中变化的部分
+
