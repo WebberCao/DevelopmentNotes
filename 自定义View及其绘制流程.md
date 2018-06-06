@@ -100,13 +100,23 @@ public void draw(Canvas canvas) {
 | 重写的方法 |  绘制代码的位置 | 绘制的内容出现的位置 |
 |:----------:|:-------------:|:------------------:|
 | onDraw()  | super.onDraw()之前| 背景与原主体内容之间|
-|  onDraw()    | super.onDraw()之后| 原主体内容与子View之间|
+|            | super.onDraw()之后| 原主体内容与子View之间|
 | dispatchDraw()| super.dispatchDraw()之前 |原主体内容与子View之间   |
-| dispatchDraw()| super.dispatchDraw()之后 | 子View和前景之间 |
+|             | super.dispatchDraw()之后 | 子View和前景之间 |
 | onDrawForeground()| super.onDrawForeground()之前 | 子View和前景之间  |
-| onDrawForeground()  | super.onDrawForeground()之后 | 盖住前景  |
-| draw()  | super.draw()之前   |   被背景盖住 |
-| draw()  | super.draw()之后   |   盖住前景 |
+|                | super.onDrawForeground()之后 | 盖住前景  |
+| draw()     | super.draw()之前   |   被背景盖住 |
+|            | super.draw()之后   |   盖住前景 |
+
+**测量阶段**，measure() 方法被父 View 调用，在 measure() 中做一些准备和优化工作后，调用  onMeasure() 来进行实际的自我测量。 onMeasure() 做的事，View 和 ViewGroup 不一样：
+
+View：View 在 onMeasure() 中会计算出自己的尺寸然后保存；
+ViewGroup：ViewGroup 在 onMeasure() 中会调用所有子 View 的 measure() 让它们进行自我测量，并根据子 View 计算出的期望尺寸来计算出它们的实际尺寸和位置（实际上 99.99% 的父 View 都会使用子 View 给出的期望尺寸来作为实际尺寸，原因在下期或下下期会讲到）然后保存。同时，它也会根据子 View 的尺寸和位置来计算出自己的尺寸然后保存；
+
+**布局阶段**，layout() 方法被父 View 调用，在 layout() 中它会保存父 View 传进来的自己的位置和尺寸，并且调用 onLayout() 来进行实际的内部布局。onLayout() 做的事， View 和 ViewGroup 也不一样：
+
+View：由于没有子 View，所以 View 的 onLayout() 什么也不做。
+ViewGroup：ViewGroup 在 onLayout() 中会调用自己的所有子 View 的 layout() 方法，把它们的尺寸和位置传给它们，让它们完成自我的内部布局。
 
 
 
