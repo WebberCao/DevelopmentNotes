@@ -1,4 +1,4 @@
-#### View绘制流程
+### View绘制流程
 当Activity对象被创建完毕后，会将DecorView添加到Window中（Window是对窗口的抽象，DecorView是一个窗口的顶级容器View，其本质是一
 个FrameLayout），同时会创建ViewRootImpl（ViewRoot的实现类）对象，并将ViewRootImpl与DecorView建立关联。View的绘制流程从ViewRoot的performTraversals方法开始，经过measure、layout 、draw三大过程完成对一个View的绘制工作。peformTraversal方法内部会调用measure、layout、draw这三个
 方，这三个方法内部又分别调用onMeasure、onLayout、onDraw方法。
